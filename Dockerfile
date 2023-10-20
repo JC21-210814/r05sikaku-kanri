@@ -3,7 +3,7 @@ USER root
 RUN apt update
 RUN apt install -y git
 WORKDIR /app
-RUN git clone https://github.com/yoshzawa/r05sikaku-kanri.git servlet-source
+RUN git clone https://github.com/JC21-210814/r05sikaku-kanri.git servlet-source
 RUN ls -l /app/servlet-source
 RUN gradle -p servlet-source war
 
