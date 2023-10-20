@@ -1,9 +1,9 @@
 FROM gradle:latest
 WORKDIR /app
-RUN git clone https://github.com/JC21-210814/r05sikaku-kanri.git servlet-source10
-RUN ls -l /app/servlet-source10
-COPY ./build.gradle /app/servlet-source10/build.gradle
-RUN gradle -p servlet-source10 war
+RUN git clone https://github.com/JC21-210814/r05sikaku-kanri.git servlet-source
+RUN ls -l /app/servlet-source
+COPY ./build.gradle /app/servlet-source/build.gradle
+RUN gradle -p servlet-source war
 
 
 
