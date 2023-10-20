@@ -1,13 +1,12 @@
 FROM gradle:latest
+USER root
+RUN apt update
+RUN apt install -y git
 WORKDIR /app
 RUN git clone https://github.com/yoshzawa/r05sikaku-kanri.git servlet-source
 RUN ls -l /app/servlet-source
-COPY ./build.gradle /app/servlet-source/build.gradle
 RUN gradle -p servlet-source war
 
-
-
-#FROM jetty:latest
 FROM tomcat:9-jdk17
 USER root
 RUN apt update
