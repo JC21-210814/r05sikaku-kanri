@@ -52,9 +52,9 @@
     <div class="page-selector">
         <h2>資格管理システム</h2>
         <ul>
-            <li><a href="SikakuView?userId=<%=userId %>">合格資格一覧</a></li>
-            <li><a href="VoucherView?userId=<%=userId %>">バウチャー一覧</a></li>
-            <li><a href="ScheduleView?userId=<%=userId %>"><strong>受験予定資格</strong></a></li>
+            <li><a href="<%=request.getContextPath() %>/SikakuView?userId=<%=userId %>">合格資格一覧</a></li>
+            <li><a href="<%=request.getContextPath() %>/VoucherView?userId=<%=userId %>">バウチャー一覧</a></li>
+            <li><a href="<%=request.getContextPath() %>/ScheduleView?userId=<%=userId %>"><strong>受験予定資格</strong></a></li>
         </ul>
     </div>
 

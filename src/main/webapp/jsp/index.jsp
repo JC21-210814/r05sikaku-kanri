@@ -20,7 +20,7 @@
                     ログイン
                 </div>
                 <div class="card-body">
-                    <form action="/sikaku-kanri/UserVerification" method="POST">
+                    <form action="<%=request.getContextPath() %>/UserVerification" method="POST">
                         <div class="mb-3">
                             <label for="username" class="form-label">ユーザー名</label>
                             <input type="text" class="form-control" id="username" name="username" required>
