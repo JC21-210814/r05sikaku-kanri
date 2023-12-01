@@ -35,7 +35,7 @@ public class ScheduleView extends HttpServlet {
 		ArrayList<ExamPlan> examPlans = ExamPlansFetcher.fetchExamPlans(userId);
 		request.setAttribute("userId", userId);
 		request.setAttribute("examPlans", examPlans);
-		request.getRequestDispatcher("jsp/scheduleView.jsp").forward(request,response);
+		request.getRequestDispatcher("/jsp/scheduleView.jsp").forward(request,response);
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class ScheduleView extends HttpServlet {
 		ArrayList<ExamPlan> examPlans = ExamPlansFetcher.fetchExamPlans(user);
 		
 		request.setAttribute("examPlans", examPlans);
-		request.getRequestDispatcher("jsp/scheduleView.jsp").forward(request,response);
+		request.getRequestDispatcher("/jsp/scheduleView.jsp").forward(request,response);
 	}
 
 }

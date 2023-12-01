@@ -35,7 +35,7 @@ public class SikakuView extends HttpServlet {
 		ArrayList<CertifiedInfo> certifiedInfomations = CertifiedInfomationsFetcher.fetchCertifiedInfo(userId);
 		request.setAttribute("userId", userId);
 		request.setAttribute("certifiedInfomations", certifiedInfomations);
-		request.getRequestDispatcher("jsp/sikakuView.jsp").forward(request,response);
+		request.getRequestDispatcher("/jsp/sikakuView.jsp").forward(request,response);
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class SikakuView extends HttpServlet {
 		
 		request.setAttribute("userId", userId);
 		request.setAttribute("certifiedInfomations", certifiedInfomations);
-		request.getRequestDispatcher("jsp/sikakuView.jsp").forward(request,response);
+		request.getRequestDispatcher("/jsp/sikakuView.jsp").forward(request,response);
 	}
 
 }

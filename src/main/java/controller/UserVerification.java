@@ -39,7 +39,7 @@ public class UserVerification extends HttpServlet {
 			
 			// ユーザーが認証できない場合は認証ページにリダイレクト
 			if (!user.isVerified()) {
-				response.sendRedirect("jsp/index.jsp");
+				response.sendRedirect("/jsp/index.jsp");
 				return;
 			}
 			
@@ -49,7 +49,7 @@ public class UserVerification extends HttpServlet {
 			
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
-			response.sendRedirect("jsp/index.jsp");
+			response.sendRedirect("/jsp/index.jsp");
 			return;
 		}
 	}

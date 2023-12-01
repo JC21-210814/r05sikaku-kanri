@@ -35,7 +35,7 @@ public class VoucherView extends HttpServlet {
 		ArrayList<Voucher> ownedVouchers = OwnedVouchersFetcher.fetchOwnedVouchers(userId);
 		request.setAttribute("userId", userId);
 		request.setAttribute("ownedVouchers", ownedVouchers);
-		request.getRequestDispatcher("jsp/voucherView.jsp").forward(request,response);
+		request.getRequestDispatcher("/jsp/voucherView.jsp").forward(request,response);
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class VoucherView extends HttpServlet {
 		
 		request.setAttribute("userId", userId);
 		request.setAttribute("ownedVouchers", ownedVouchers);
-		request.getRequestDispatcher("jsp/voucherView.jsp").forward(request,response);
+		request.getRequestDispatcher("/jsp/voucherView.jsp").forward(request,response);
 	}
 
 }
