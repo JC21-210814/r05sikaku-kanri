@@ -1,3 +1,6 @@
+<%@page import="model.CertifiedInfo"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,14 +38,18 @@
     </style>
 </head>
 <body>
+<%@ page import="model.CertifiedInfo" %>
+<%@ page import="java.util.ArrayList" %>
+<% ArrayList<CertifiedInfo> certifiedInfomations = (ArrayList)request.getAttribute("certifiedInfomations");%>
+<% int userId = (int)request.getAttribute("userId"); %>
 
 <div class="container">
     <div class="page-selector">
         <h2>資格管理システム</h2>
         <ul>
-            <li><a href="./sikakuView.html"><strong>合格資格一覧</strong></a></li>
-            <li><a href="./voucherView.html">バウチャー一覧</a></li>
-            <li><a href="./scheduleView.html">受験予定資格</a></li>
+            <li><a href="SikakuView?userId=<%=userId %>"<strong>合格資格一覧</strong></a></li>
+            <li><a href="VoucherView?userId=<%=userId %>">バウチャー一覧</a></li>
+            <li><a href="ScheduleView?userId=<%=userId %>">受験予定資格</a></li>
         </ul>
     </div>
 
@@ -57,16 +64,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>基本情報技術者試験</td>
-                    <td>令和3年11月</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>応用情報技術者試験</td>
-                    <td>令和4年4月</td>
-                </tr>
+            	<%
+            		for (int i=0; i < certifiedInfomations.size(); i++){
+            			CertifiedInfo info = certifiedInfomations.get(i);
+            			out.print("<tr>");
+            			out.print("<td>"+(i+1)+"</td>");
+            			out.print("<td>"+info.getName()+"</td>");
+            			out.print("<td>"+info.getJapaneseCertifiedDate()+"</td>");
+            			out.print("<tr>");
+            		}
+            	%>
             </tbody>
         </table>
         <a href="./sikakuAdd.html" class="btn btn-primary">新規資格登録</a>

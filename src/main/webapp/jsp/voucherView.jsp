@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,53 +34,47 @@
             text-align: left;
             padding: 8px;
         }
-
-        .button-gray {
-            background-color: #e0e0e0;
-            color: #888888;
-            cursor: not-allowed;
-        }
     </style>
 </head>
 <body>
+<%@page import="model.Voucher" %>
+<%@page import="java.util.ArrayList" %>
+<% ArrayList<Voucher> ownedVouchers = (ArrayList)request.getAttribute("ownedVouchers"); %>
+<% int userId = (int)request.getAttribute("userId"); %>
 
 <div class="container">
     <div class="page-selector">
         <h2>資格管理システム</h2>
         <ul>
-            <li><a href="./sikakuView.html">合格資格一覧</a></li>
-            <li><a href="./voucherView.html"><strong>バウチャー一覧</strong></a></li>
-            <li><a href="./scheduleView.html"><strong>受験予定資格</strong></a></li>
+            <li><a href="SikakuView?userId=<%=userId %>">合格資格一覧</a></li>
+            <li><a href="VoucherView?userId=<%=userId %>"><strong>バウチャー一覧</strong></a></li>
+            <li><a href="ScheduleView?userId=<%=userId %>">受験予定資格</a></li>
         </ul>
     </div>
 
     <div class="data-table">
-        <h2>資格取得スケジュール</h2>
+        <h2>バウチャー一覧</h2>
         <table class="table">
             <thead>
                 <tr>
                     <th>番号</th>
-                    <th>資格名</th>
-                    <th>申込状況</th>
-                    <th>受験日</th>
+                    <th>バウチャー名</th>
+                    <th>期限</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>ITパスポート試験</td>
-                    <td><button class="button-gray" disabled>予約済み</button></td>
-                    <td>令和5年11月4日</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Oracle 監督あり試験</td>
-                    <td><a href="./reservationInfo.html" class="btn btn-primary">予約情報登録</a></td>
-                    <td>---</td>
-                </tr>
+            	<%
+            		for(int i=0; i < ownedVouchers.size(); i++) {
+            			Voucher voucher = ownedVouchers.get(i);
+            			out.print("<tr>");
+            			out.print("<td>" + (i+1) + "</td>");
+            			out.print("<td>" + voucher.getName() + "</td>");
+            			out.print("<td>" + voucher.getJapaneseLimitDate() + "</td>");
+            			out.print("</tr>");
+            		}
+            	%>
             </tbody>
         </table>
-        <a href="./scheduleAdd.html" class="btn btn-primary">スケジュール追加</a>
     </div>
 </div>
 
